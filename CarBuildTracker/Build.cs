@@ -8,9 +8,14 @@ namespace CarBuildTracker
 {
     class Build
     {
+        private static int lastBuildNumber = 0;
+
 #region Properties
 
-        public int VinNumber { get; set; }
+        public int BuildNumber { get; set; }
+        public string CustomerFirstName { get; set; }
+        public string CustomerLastName { get; set; }
+        public long VinNumber { get; set; }
         public int Year { get; set; }
         public string Make { get; set; }
         public string Model { get; set; }
@@ -18,6 +23,16 @@ namespace CarBuildTracker
         public DateTime BuildStartDate { get; set; }
         public DateTime BuildGoalDate { get; set; }
         #endregion
+
+        #region Constructors
+
+        public Build()
+        {
+            BuildNumber = ++lastBuildNumber;
+            BuildStartDate = DateTime.Now;
+        }
+        #endregion
+
 
         #region Methods
         /// <summary>

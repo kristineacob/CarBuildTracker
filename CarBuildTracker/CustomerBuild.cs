@@ -6,19 +6,25 @@ using System.Threading.Tasks;
 
 namespace CarBuildTracker
 {
-    class Build
+
+    enum Type
+    {
+        Car,
+        Truck,
+        Cycle
+
+    }
+    class CustomerBuild
     {
         private static int lastBuildNumber = 0;
 
 #region Properties
 
         public int BuildNumber { get; set; }
-        public string CustomerFirstName { get; set; }
-        public string CustomerLastName { get; set; }
+        public string CustomerName { get; set; }
         public long VinNumber { get; set; }
-        public int Year { get; set; }
-        public string Make { get; set; }
-        public string Model { get; set; }
+        public Type VehicleType { get; set; }
+        public int YearMakeModel { get; set; }
         public decimal Balance { get; set; }
         public DateTime BuildStartDate { get; set; }
         public DateTime BuildGoalDate { get; set; }
@@ -26,7 +32,7 @@ namespace CarBuildTracker
 
         #region Constructors
 
-        public Build()
+        public CustomerBuild()
         {
             BuildNumber = ++lastBuildNumber;
             BuildStartDate = DateTime.Now;
